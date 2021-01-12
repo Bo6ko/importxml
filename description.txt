@@ -1,0 +1,8 @@
+Тhe task includes 2 main pages -
+1. importxml.localhost/?controller=home&action=search - which is the presentation of the books.
+2. and second page which you can upload information from XML file and inserting it to database. 
+If this data already exists - this is not recorded in the database, because already exists.
+
+I have created some classes for routing between pages. Routing between pages I do it by $_GET parameter.
+Also I use singleto pattern for database class. In this file - config.php you can configure your database.
+And after that you can you this static class to making sql query in php files.
