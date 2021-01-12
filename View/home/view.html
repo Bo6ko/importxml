@@ -1,0 +1,33 @@
+View All books
+
+<br/><br/>
+
+<form action="?controller=home&action=search" method="post">
+    <label for="search">Search form</label>
+    <input type="text" id="search" name="search" placeholder="Search" />
+
+    <input type="submit" value="Search" />
+</form>
+
+<br/><br/>
+
+<table>
+    <thead>
+        <tr>
+            <th>#</th>            
+            <th>Author name</th>
+            <th>Book name</th>
+        </tr>
+    </thead>
+    <?php if ( isset($books) && is_array(pg_fetch_all($books)) ) : ?>
+    <tbody>    
+    <?php foreach (pg_fetch_all($books) as $book) : ?>
+        <tr>
+            <td><?php echo $book['book_id']; ?></td>            
+            <td><?php echo $book['book_author']; ?></td>
+            <td><?php echo $book['book_name']; ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+    <?php endif; ?>
+</table>
